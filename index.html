@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8d8e4">
+  <title>For Aryaa ♡</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="app" aria-label="Aryaa birthday website">
+
+    <section class="page active" id="home" aria-label="Home">
+      <img class="art" src="assets/home.jpg" alt="Aryaa's original floral birthday home page">
+      <button class="next-pill" data-go="countdown">A little more ♡</button>
+    </section>
+
+    <section class="page" id="countdown" aria-label="Birthday timer">
+      <img class="art" src="assets/countdown.jpg" alt="Birthday timer design">
+      <div class="timer-live" aria-label="Live birthday timer">
+        <div class="time-unit"><strong id="days">--</strong><small>Days</small></div>
+        <span class="time-heart">♡</span>
+        <div class="time-unit"><strong id="hours">--</strong><small>Hours</small></div>
+        <span class="time-heart">♡</span>
+        <div class="time-unit"><strong id="minutes">--</strong><small>Minutes</small></div>
+        <span class="time-heart">♡</span>
+        <div class="time-unit"><strong id="seconds">--</strong><small>Seconds</small></div>
+      </div>
+      <button class="next-pill" data-go="gallery">Continue ♡</button>
+    </section>
+
+    <section class="page" id="gallery" aria-label="Gallery">
+      <img class="art" src="assets/gallery.jpg" alt="Gallery page with five empty photo frames">
+      <button class="art-button gallery-button" data-go="memories" aria-label="View all photos"></button>
+    </section>
+
+    <section class="page" id="memories" aria-label="Memories">
+      <img class="art" src="assets/memories.jpg" alt="Memories page with four empty hanging photo frames">
+      <button class="next-pill" data-go="your-fav">Next page ♡</button>
+    </section>
+
+    <section class="page" id="your-fav" aria-label="Your favourite">
+      <img class="art" src="assets/your-fav.jpg" alt="Vampire Diaries page with Stefan, Damon, Elena and Elijah">
+      <button class="next-pill dark-next" data-go="letter">A little something for you ♡</button>
+    </section>
+
+    <section class="page" id="letter" aria-label="Letter entrance">
+      <img class="art" src="assets/letter.jpg" alt="Romantic envelope at sunset">
+      <button class="art-button letter-open-button" id="open-letter" aria-label="Open the Letter"></button>
+      <button class="next-pill letter-next-surprise" id="next-surprise">Next Surprise ♡</button>
+    </section>
+
+    <section class="page gated" id="letter-opened" aria-label="Opened letter">
+      <img class="art" src="assets/letter-opened.jpg" alt="Opened birthday letter with red rose bouquet and chocolates">
+      <article class="personal-letter" aria-label="Birthday letter for Aryaa">
+        <p class="letter-greeting">Dear Aryaaaa,</p>
+        <p class="letter-birthday">Happy Birthday!!!</p>
+        <p>I am writing this letter because some feelings can never truly be expressed through simple text messages. On your special day, it is important for you to know how much you mean to me.</p>
+        <p>Years passed in my life. I had everything—friends, family—but even then, I felt something was missing. Actually, someone whom I could call mine, someone with whom I could talk for hours and hours, someone with whom I felt comfortable. And that someone, I feel, is you and no one else...</p>
+        <p>Do you remember the first night we met, the night of 29th September? That was one of the most amazing nights of my life. Then came those late-night movie sessions, our digital paint drawings, me editing the report while you shared all the college gossip with me. Even your simple message, "Kalji ghe," meant a lot to me because no one had ever said that to me before.</p>
+        <p>You are a complete package of happiness and joy. I absolutely love the way you talk, your voice notes, your magical ability to make all my stress disappear (Hatt Wala Magic), and so many other little things that words can hardly describe.</p>
+        <p>I hope this birthday becomes one of the most special days of your life. And one recommendation is definitely waiting for you this year! I have also manifested meeting you at the Defence Academy, and I truly believe that this will surely come true.</p>
+        <p>You never have to face anything alone. Whenever you need support, a listener, or simply someone to stand beside you, I will always be there for you.</p>
+        <p>Once again, Happy Birthday.</p>
+        <p class="letter-signoff">With lots of good wishes,</p>
+      </article>
+      <button class="back-pill" id="back-letter">← Back to envelope ♡</button>
+    </section>
+
+    <section class="page" id="sky-entry" aria-label="Sky full of wishes entrance">
+      <img class="art" src="assets/sky-entry.jpg" alt="Glowing star jar and Enter My Sky cloud button">
+      <button class="art-button sky-enter-button" id="enter-sky" aria-label="Enter My Sky"></button>
+    </section>
+
+    <section class="page gated" id="sky-wishes" aria-label="Nine birthday wishes">
+      <img class="art" src="assets/sky-wishes.jpg" alt="Nine glowing wish stars">
+      <div class="wish-hotspots" aria-label="Choose a star">
+        <button style="--x:29.5%;--y:27%;--w:14%;--h:23%" data-wish="0" aria-label="For Your Happiness"></button>
+        <button style="--x:50.5%;--y:25%;--w:14%;--h:23%" data-wish="1" aria-label="For Our Future"></button>
+        <button style="--x:71.8%;--y:27%;--w:14%;--h:23%" data-wish="2" aria-label="For My Queen"></button>
+        <button style="--x:22.5%;--y:51%;--w:14%;--h:23%" data-wish="3" aria-label="For Your Dreams"></button>
+        <button style="--x:50%;--y:51%;--w:18%;--h:25%" data-wish="4" aria-label="How Special You Are"></button>
+        <button style="--x:81.5%;--y:51%;--w:14%;--h:23%" data-wish="5" aria-label="For Your Smile"></button>
+        <button style="--x:34%;--y:72%;--w:14%;--h:22%" data-wish="6" aria-label="A Little Confession"></button>
+        <button style="--x:51.5%;--y:82%;--w:14%;--h:18%" data-wish="7" aria-label="For Your Growth"></button>
+        <button style="--x:67.5%;--y:72%;--w:15%;--h:22%" data-wish="8" aria-label="For Many More Birthdays"></button>
+      </div>
+      <button class="back-pill wishes-back" data-go="sky-entry">Back to my sky ♡</button>
+    </section>
+
+    <!-- The exact same ribbon crop from the approved Home page is used on every screen. -->
+    <header class="shared-ribbon" aria-label="Main navigation">
+      <img src="assets/shared-ribbon-clean.jpg" alt="">
+      <span class="ribbon-active-pill" aria-hidden="true"></span>
+      <span class="ribbon-home-label" aria-hidden="true">Home</span>
+      <nav class="ribbon-clicks">
+        <a href="#home" aria-label="Home"></a>
+        <a href="#gallery" aria-label="Gallery"></a>
+        <a href="#memories" aria-label="Memories"></a>
+        <a href="#your-fav" aria-label="Your favourite"></a>
+        <a href="#letter" aria-label="Letter"></a>
+        <a href="#sky-entry" aria-label="Surprise"></a>
+      </nav>
+    </header>
+  </main>
+
+  <div class="wish-modal" id="wish-modal" hidden role="dialog" aria-modal="true" aria-labelledby="wish-title">
+    <div class="wish-card">
+      <button class="modal-close" id="close-wish" aria-label="Close">×</button>
+      <div class="wish-sparkle">✦ ♡ ✦</div>
+      <h2 id="wish-title"></h2>
+      <p id="wish-message"></p>
+      <button class="wish-next" id="next-wish">Another little wish ✨</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+*{box-sizing:border-box}
+:root{--plum:#511b40;--rose:#df82a3;--cream:#fff4e8}
+html,body{width:100%;min-height:100%;margin:0;overflow-x:hidden;overflow-y:auto;background:#24142e;scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif}
+.app{position:relative;width:100%;min-height:100vh;display:block;overflow:visible;background:linear-gradient(180deg,#f8dce8 0%,#f2cddd 100%)}
+.page{display:block;position:relative;width:100%;height:auto;aspect-ratio:1670/942;overflow:hidden;isolation:isolate;background:#f8dce8;scroll-margin-top:0;}
+.art{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;display:block;z-index:0;user-select:none;-webkit-user-drag:none}
+.shared-ribbon{
+ position:fixed;z-index:50;top:0;left:0;right:0;width:100%;
+ height:auto;aspect-ratio:1670/90;pointer-events:none;transform:none;
+ filter:drop-shadow(0 3px 10px rgba(80,26,58,.10));
+}
+.shared-ribbon>img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none}
+.ribbon-clicks{position:absolute;inset:0;pointer-events:none}
+.ribbon-clicks a{position:absolute;top:0;height:100%;display:block;pointer-events:auto;cursor:pointer}
+.ribbon-clicks a:nth-child(1){left:53.2%;width:7.8%}
+.ribbon-clicks a:nth-child(2){left:61.1%;width:7.4%}
+.ribbon-clicks a:nth-child(3){left:68.5%;width:8.8%}
+.ribbon-clicks a:nth-child(4){left:77.3%;width:8.2%}
+.ribbon-clicks a:nth-child(5){left:85.5%;width:6.3%}
+.ribbon-clicks a:nth-child(6){left:91.8%;width:8.0%}
+.ribbon-clicks a:focus-visible{outline:2px solid #a33f70;outline-offset:-4px;border-radius:20px}
+.ribbon-active-pill{
+ position:absolute;top:19%;left:54.45%;width:6.9%;height:61%;
+ border-radius:999px;background:rgba(224,139,184,.48);
+ box-shadow:inset 0 0 0 1px rgba(198,111,157,.12),0 2px 8px rgba(160,75,121,.10);
+ transition:left .38s cubic-bezier(.22,.8,.25,1),width .38s cubic-bezier(.22,.8,.25,1);
+ z-index:0;pointer-events:none;
+}
+.next-pill,.back-pill{
+ position:absolute;z-index:8;left:50%;bottom:2.5%;transform:translateX(-50%);
+ border:1px solid rgba(166,83,119,.55);border-radius:999px;padding:9px 21px;
+ background:rgba(255,246,239,.9);color:#712b50;
+ box-shadow:0 5px 18px rgba(92,35,72,.18);
+ font:italic 500 clamp(11px,1vw,15px) "Playfair Display",serif;white-space:nowrap;cursor:pointer;
+}
+.next-pill:hover,.back-pill:hover{background:#fff;transform:translateX(-50%) translateY(-2px)}
+.dark-next{background:rgba(53,20,28,.82);color:#ffe6d0;border-color:#c78d68}
+.art-button{position:absolute;z-index:9;border:0;background:transparent;cursor:pointer}
+.letter-open-button{left:35.5%;top:80.5%;width:29%;height:11%}
+.sky-enter-button{left:29%;top:76%;width:42%;height:20%}
+.gallery-button{left:37%;top:87.5%;width:26%;height:9%}
+.photo-slots{position:absolute;inset:0;z-index:5;pointer-events:none}
+.photo-slot{position:absolute;left:var(--x);top:var(--y);width:var(--w);height:var(--h);display:block;overflow:hidden;pointer-events:auto;cursor:pointer}
+.photo-slot input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;z-index:2}
+.photo-slot img{display:none;width:100%;height:100%;object-fit:cover;border:5px solid white;box-shadow:0 3px 15px #35172a55}
+.photo-slot img.has-photo{display:block}
+.timer-live{
+ position:absolute;z-index:6;left:33.2%;top:48.6%;width:33.7%;height:12.8%;
+ display:flex;align-items:center;justify-content:center;gap:clamp(4px,.55vw,10px);
+ border-radius:18px;background:rgba(255,225,239,.96);
+ box-shadow:0 4px 12px rgba(173,84,137,.13);
+}
+.time-unit{width:22%;height:83%;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid #efb2d0;border-radius:15px;background:linear-gradient(180deg,#fff3fa,#f9d8e8);box-shadow:0 2px 4px #a84c8030}
+.time-unit strong{font:italic 600 clamp(17px,2.05vw,31px)/1 "Playfair Display",serif;color:#441b39;font-variant-numeric:tabular-nums}
+.time-unit small{margin-top:3px;font:italic clamp(7px,.8vw,12px) "Playfair Display",serif;color:#63344f}
+.time-heart{color:#8c3d68;font-size:clamp(9px,.9vw,14px)}
+.wish-hotspots{position:absolute;inset:0;z-index:7}
+.wish-hotspots button{position:absolute;left:var(--x);top:var(--y);width:var(--w);height:var(--h);transform:translate(-50%,-50%);border:0;border-radius:50%;background:transparent;cursor:pointer}
+.wish-hotspots button:focus-visible,.art-button:focus-visible{outline:2px solid #ffe6ac;outline-offset:1px}
+.wish-modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;background:rgba(22,10,35,.72);backdrop-filter:blur(8px)}
+.wish-modal[hidden]{display:none}
+.wish-card{position:relative;width:min(92vw,460px);padding:38px 30px 30px;text-align:center;border:1px solid #f4c6d6;border-radius:26px;background:linear-gradient(145deg,#fff8f1,#fbe0ec);box-shadow:0 25px 90px #10081d88;color:#5a2445}
+.modal-close{position:absolute;right:15px;top:8px;border:0;background:transparent;font-size:30px;color:#9d5676;cursor:pointer}
+.wish-sparkle{color:#d58aa8;letter-spacing:.35em}
+.wish-card h2{font:italic 500 clamp(26px,4vw,38px) "Playfair Display",serif;margin:14px 0;color:#812c56}
+.wish-card p{font:16px/1.8 "Playfair Display",serif;color:#674354;margin:0 auto 22px;max-width:360px}
+.wish-next{border:1px solid #d98aa8;background:linear-gradient(135deg,#f5b5ca,#e88eae);color:#fff;border-radius:999px;padding:11px 20px;font:500 13px "DM Sans",sans-serif;cursor:pointer}
+@media(max-width:760px){
+ .page{width:100vw;height:56.408vw;max-height:100vh}
+ .shared-ribbon{width:100vw;height:56.408vw}
+ .timer-live{left:32%;width:36%;top:48.5%;height:13%;gap:2px}
+ .time-unit{border-radius:9px}
+ .time-unit strong{font-size:clamp(12px,2.2vw,19px)}
+ .time-unit small{font-size:6px}
+ .next-pill,.back-pill{padding:6px 14px;bottom:1.7%;font-size:10px}
+ .photo-slot img{border-width:2px}
+}
+@media(max-height:520px) and (min-width:761px){
+ .next-pill,.back-pill{padding:6px 15px}
+}
+
+/* All approved screens are stacked in one continuous page. */
+html{scroll-padding-top:0}
+body{overflow-x:hidden;overflow-y:auto}
+.app{min-height:100vh;height:auto;overflow:visible;padding:0}
+.page{display:block!important;width:100%;height:auto;aspect-ratio:1670/942;margin:0 auto;overflow:hidden;scroll-margin-top:0}
+.page.active{animation:none}
+.art{width:100%;height:100%;object-fit:fill}
+.shared-ribbon{position:fixed;top:0;left:0;right:0;width:100%;height:auto;aspect-ratio:1670/90;transform:none}
+.ribbon-active-pill{top:19%;height:61%}
+@media(max-width:760px){
+ .page{width:100%;aspect-ratio:1670/942}
+ .shared-ribbon{width:100%;height:auto;aspect-ratio:1670/90}
+ .ribbon-clicks a{height:100%}
+ .timer-live{left:32%;width:36%;top:48.5%;height:13%;gap:2px}
+ .time-unit{border-radius:9px}
+ .time-unit strong{font-size:clamp(12px,2.2vw,19px)}
+ .time-unit small{font-size:6px}
+ .next-pill,.back-pill{padding:6px 14px;bottom:1.7%;font-size:10px}
+ .photo-slot img{border-width:2px}
+}
+
+/* Home text is re-layered over the clean header crop; the home icon remains in the original artwork. */
+.ribbon-home-label{
+ position:absolute;left:55.55%;top:50%;transform:translateY(-50%);
+ z-index:2;pointer-events:none;white-space:nowrap;
+ color:#511b40;font:600 clamp(10px,1.15vw,18px)/1 "Playfair Display",serif;
+}
+
+/* Hidden interactive reveals: they enter the page flow only after their buttons are clicked. */
+.page.gated{display:none!important}
+
+/* RESTORED: one-screen-at-a-time website navigation */
+html,body{
+ width:100%;height:100%;min-height:100%;
+ margin:0;overflow:hidden!important;
+ scroll-behavior:auto;
+ background:#24142e;
+}
+.app{
+ position:relative;width:100%;height:100vh;min-height:100vh;
+ display:grid;place-items:center;overflow:hidden;
+ padding:0;
+ background:radial-gradient(ellipse at center,#f9dce7 0%,#e8b7ca 60%,#31203f 100%);
+}
+.page{
+ display:none!important;
+ position:relative;
+ width:min(100vw,177.282vh);
+ height:min(100vh,56.408vw);
+ max-height:100vh;
+ aspect-ratio:1670/942;
+ margin:0 auto;
+ overflow:hidden;
+ isolation:isolate;
+ background:#f8dce8;
+ scroll-margin:0;
+}
+.page.active{
+ display:block!important;
+ animation:pageIn .38s ease both;
+}
+@keyframes pageIn{
+ from{opacity:.55;transform:scale(.994)}
+ to{opacity:1;transform:scale(1)}
+}
+.art{position:absolute;inset:0;width:100%;height:100%;object-fit:fill}
+.page.gated{display:none!important}
+.shared-ribbon{
+ position:fixed;z-index:50;top:0;left:50%;
+ transform:translateX(-50%);
+ width:min(100vw,177.282vh);
+ height:auto;
+ aspect-ratio:1670/90;
+ pointer-events:none;
+ filter:drop-shadow(0 3px 10px rgba(80,26,58,.10));
+}
+.shared-ribbon>img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none}
+.ribbon-clicks{position:absolute;inset:0;pointer-events:none}
+.ribbon-clicks a{position:absolute;top:0;height:100%;display:block;pointer-events:auto;cursor:pointer}
+.ribbon-active-pill{top:19%;height:61%;z-index:1}
+.ribbon-home-label{z-index:2}
+.next-pill,.back-pill{bottom:2.5%}
+@media(max-width:760px){
+ .page{width:100vw;height:56.408vw;max-height:100vh}
+ .shared-ribbon{width:100vw}
+ .timer-live{left:32%;width:36%;top:48.5%;height:13%;gap:2px}
+ .time-unit{border-radius:9px}
+ .time-unit strong{font-size:clamp(12px,2.2vw,19px)}
+ .time-unit small{font-size:6px}
+ .next-pill,.back-pill{padding:6px 14px;bottom:1.7%;font-size:10px}
+ .photo-slot img{border-width:2px}
+}
+
+/* Letter page: separate navigation to the Surprise entrance. */
+.letter-next-surprise{
+  bottom:2.5%;
+  z-index:10;
+  padding:9px 22px;
+  background:rgba(255,246,239,.93);
+  border:1px solid rgba(166,83,119,.65);
+  color:#712b50;
+  box-shadow:0 5px 18px rgba(92,35,72,.2);
+}
+
+/* The supplied personal letter sits on the original parchment artwork. */
+.personal-letter{
+ position:absolute;z-index:5;left:35.9%;top:25.0%;width:28.2%;height:36.5%;
+ overflow-y:auto;overflow-x:hidden;padding:0 1.0% 1.2%;
+ color:#3f2520;text-align:left;
+ font-family:"Playfair Display",Georgia,serif;
+ font-size:clamp(7px,.73vw,12.2px);line-height:1.36;font-style:italic;
+ scrollbar-width:none;overscroll-behavior:contain;
+}
+.personal-letter::-webkit-scrollbar{display:none}
+.personal-letter p{margin:0 0 .72em}
+.personal-letter .letter-greeting,.personal-letter .letter-birthday,.personal-letter .letter-signoff{
+ font-weight:600;color:#762a2a;font-style:normal;
+}
+.personal-letter .letter-greeting{font-size:1.12em;margin-bottom:.25em}
+.personal-letter .letter-birthday{font-size:1.18em;margin-bottom:.75em}
+.personal-letter .letter-signoff{margin-top:.35em;margin-bottom:0}
+@media(max-width:760px){
+ .personal-letter{font-size:clamp(6px,1.05vw,8px);line-height:1.28;left:35.9%;top:25%;width:28.2%;height:36.5%;}
+}
+/* Opaque parchment-toned reading area cleanly covers the original sample lettering. */
+.personal-letter{
+ background:linear-gradient(145deg,rgba(250,232,201,.985),rgba(255,239,211,.99) 48%,rgba(247,225,190,.985));
+ border-radius:5px;
+ padding:1.2% 1.25% 1.5%;
+ box-shadow:0 1px 5px rgba(118,74,40,.08);
+}
+
+
+/* Approved Home reference includes its own ribbon and A little more button.
+   Keep the shared navigation links clickable without duplicating those visuals. */
+.app:has(#home.active) .shared-ribbon > img,
+.app:has(#home.active) .shared-ribbon .ribbon-active-pill,
+.app:has(#home.active) .shared-ribbon .ribbon-home-label {
+  opacity: 0;
+}
+#home.active .next-pill { display: block; opacity: 0; width: 150px; height: 42px; padding: 0; }
+
+/* Photos are composited into the original tilted scrapbook frames. */
